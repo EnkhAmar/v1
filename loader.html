@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            animation: changeBG 1s linear infinite;
+        }
+
+        @keyframes changeBG {
+            to {
+                filter: hue-rotate(360deg);
+            }
+        }
+
+        .loader {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            top: calc(50% - 15px);
+            left: calc(50% - 15px);
+            border-radius: 50%;
+            animation: x-axis 1s ease-in-out alternate infinite;
+        }
+
+        @keyframes x-axis {
+            0% { transform: translate(-60px); }
+            100% { transform: translate(60px); }
+        }
+
+        .loader::before {
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 5px #dc1ce3,
+                        0 0 25px #dc1ce3,
+                        0 0 50px #dc1ce3,
+                        0 0 75px #dc1ce3;
+            animation: y-axis 0.5s ease-in-out 0.25s alternate infinite;
+        }
+
+        @keyframes y-axis {
+            0% { transform: translateY(-30px); }
+            100% { transform: translateY(30px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="loader"></div>
+    </div>
+</body>
+</html>
